@@ -1,0 +1,23 @@
+version: "3.8"
+services:
+  open-webui-proxy:
+    image: open-webui-proxy:1.0.0
+    user: appuser
+    container_name: open-webui-proxy
+    ports:
+      - "8000:8000"        # hostPort:containerPort
+    restart: unless-stopped
+    environment:
+     - TENANT_ID=${TENANT_ID}
+     - CLIENT_ID=${CLIENT_ID}
+     - CLIENT_SECRET=${CLIENT_SECRET}
+     - AZURE_OPENAI_ENDPOINT=${AZURE_OPENAI_ENDPOINT}
+     - DEPLOYMENT_NAME=${DEPLOYMENT_NAME}
+    healthcheck:
+      test:  [
+          "CMD-SHELL",
+          "curl -s http://localhost:8000 | grep 'ready to serve'",
+        ]
+      interval: 10s
+      timeout: 10s
+      retries: 120
