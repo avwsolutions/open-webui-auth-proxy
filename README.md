@@ -32,7 +32,7 @@ uv pip compile pyproject.toml --extra dev -o requirements-dev.txt
 
 # Start the container using Docker or Podman
 
-Just use the following commands and have a look at the [Dockerfile](.Dockerfile).
+Just use the following commands and have a look at the [Dockerfile](Dockerfile).
 
 ```
 docker build -t open-webui-proxy:1.0.0 .
