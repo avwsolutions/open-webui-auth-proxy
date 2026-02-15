@@ -12,7 +12,7 @@ uv init open-webui-proxy
 uv run --env-file .env fastapi dev app/main.py
 ```
 
-You now could validate if the endpoint is available using `curl`.
+You now could validate if the endpoint is available using `curl`, such like `curl -s http://localhost:8000 | grep 'ready to serve'`.
 
 # Include new packages
 
